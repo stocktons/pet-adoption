@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Adoption Agency {% endblock %}
+
+
+{% block content %}
+
+<h1>Pets</h1>
+
+<ul>
+    {% for pet in pets %}
+    <li><a href="/users/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a></li>
+    {% endfor %}
+</ul>
+
+<div class="new-user-btn">
+    <a href="/users/new">Add user</a>
+</div>
+
+
+{% endblock %}
