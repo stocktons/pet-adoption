@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Pet Details {% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-5">
+        <img src="{{ pet.photo_url }}" width="200px">
+    </div>
+    <div class="col-7">
+        <div class="row">
+            <h1 class="col mb-3">{{ pet.name }}</h1>
+        </div>
+        <br>
+        <div class="row">
+            <ul>
+                <li>Age: {{pet.age}}</li>
+                <li>Species: {{pet.species}}</li>
+            </ul>
+        </div>
+       
+
+        <form id="edit-pet-form" method="POST">
+            {{ form.hidden_tag() }}
+
+            {% for field in form
+            if field.widget.input_type != 'hidden' %}
+
+            <p>
+                {{ field.label }}
+                {{ field }}
+
+                {% for error in field.errors %}
+                {{ error}}
+                {% endfor %}
+            </p>
+
+            {% endfor %}
+
+            <button class="btn btn-primary btn-lg">
+                Edit Pet
+            </button>
+            <a href="/" class="btn btn-info btn-lg">Home</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

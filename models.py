@@ -14,7 +14,7 @@ def connect_db(app):
     db.app = app
     db.init_app(app)
 
-
+# make this all caps so it is marked as a global constant
 default_image = 'https://photolibrary.usap.gov/Tools/DrawImage.aspx?filename=emperor-penguin-noble.jpg'
 
 
@@ -38,10 +38,6 @@ class Pet(db.Model):
     notes = db.Column(db.Text)
     available = db.Column(db.Boolean,
                         default=True)
-    
-    
-    
-    # = db.relationship('Post', backref='user')
 
     def __repr__(self):
         u = self
